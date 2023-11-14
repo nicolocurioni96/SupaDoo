@@ -14,6 +14,9 @@
 		A12A3B692B04294A009B9637 /* SupaDooTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12A3B682B04294A009B9637 /* SupaDooTests.swift */; };
 		A12A3B732B04294A009B9637 /* SupaDooUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12A3B722B04294A009B9637 /* SupaDooUITests.swift */; };
 		A12A3B752B04294A009B9637 /* SupaDooUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12A3B742B04294A009B9637 /* SupaDooUITestsLaunchTests.swift */; };
+		A12A3B852B04338A009B9637 /* SupaDooViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12A3B842B04338A009B9637 /* SupaDooViewModel.swift */; };
+		A12A3B882B0433E9009B9637 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12A3B872B0433E9009B9637 /* Secrets.swift */; };
+		A12A3B8B2B0434E4009B9637 /* Shoppings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12A3B8A2B0434E4009B9637 /* Shoppings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +47,9 @@
 		A12A3B6E2B04294A009B9637 /* SupaDooUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SupaDooUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A12A3B722B04294A009B9637 /* SupaDooUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupaDooUITests.swift; sourceTree = "<group>"; };
 		A12A3B742B04294A009B9637 /* SupaDooUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupaDooUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		A12A3B842B04338A009B9637 /* SupaDooViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupaDooViewModel.swift; sourceTree = "<group>"; };
+		A12A3B872B0433E9009B9637 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
+		A12A3B8A2B0434E4009B9637 /* Shoppings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shoppings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,8 +100,11 @@
 		A12A3B562B042948009B9637 /* SupaDoo */ = {
 			isa = PBXGroup;
 			children = (
-				A12A3B572B042948009B9637 /* SupaDooApp.swift */,
-				A12A3B592B042948009B9637 /* ContentView.swift */,
+				A12A3B812B04331C009B9637 /* App */,
+				A12A3B892B04341C009B9637 /* Model */,
+				A12A3B822B043329009B9637 /* Views */,
+				A12A3B832B04333E009B9637 /* ViewModels */,
+				A12A3B862B0433B3009B9637 /* Shared */,
 				A12A3B5B2B042949009B9637 /* Assets.xcassets */,
 				A12A3B5D2B042949009B9637 /* Preview Content */,
 			);
@@ -125,6 +134,46 @@
 				A12A3B742B04294A009B9637 /* SupaDooUITestsLaunchTests.swift */,
 			);
 			path = SupaDooUITests;
+			sourceTree = "<group>";
+		};
+		A12A3B812B04331C009B9637 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				A12A3B572B042948009B9637 /* SupaDooApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		A12A3B822B043329009B9637 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A12A3B592B042948009B9637 /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A12A3B832B04333E009B9637 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				A12A3B842B04338A009B9637 /* SupaDooViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		A12A3B862B0433B3009B9637 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				A12A3B872B0433E9009B9637 /* Secrets.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		A12A3B892B04341C009B9637 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A12A3B8A2B0434E4009B9637 /* Shoppings.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,6 +307,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				A12A3B5A2B042948009B9637 /* ContentView.swift in Sources */,
+				A12A3B8B2B0434E4009B9637 /* Shoppings.swift in Sources */,
+				A12A3B882B0433E9009B9637 /* Secrets.swift in Sources */,
+				A12A3B852B04338A009B9637 /* SupaDooViewModel.swift in Sources */,
 				A12A3B582B042948009B9637 /* SupaDooApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
