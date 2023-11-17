@@ -11,7 +11,7 @@ import SwiftUI
 struct SupaDooApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            WelcomeView()
         }
     }
 }
