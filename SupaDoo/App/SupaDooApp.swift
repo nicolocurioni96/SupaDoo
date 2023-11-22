@@ -9,9 +9,15 @@ import SwiftUI
 
 @main
 struct SupaDooApp: App {
+    @StateObject private var supaDooViewModel = SupaDooViewModel()
+    
     var body: some Scene {
         WindowGroup {
-            WelcomeView()
+            if supaDooViewModel.isAuthenticated {
+                HomeView()
+            } else {
+                WelcomeView()
+            }
         }
     }
 }

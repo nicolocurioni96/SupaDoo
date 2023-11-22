@@ -201,8 +201,8 @@
 		A12A3B822B043329009B9637 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				A11D9B352B081B0E004DF4D4 /* Authentication */,
 				A11D9B322B0817D5004DF4D4 /* Welcome */,
+				A11D9B352B081B0E004DF4D4 /* Authentication */,
 				A11D9B2B2B080F11004DF4D4 /* Home */,
 				A11D9B2C2B080F19004DF4D4 /* Detail */,
 			);
