@@ -53,7 +53,10 @@ struct AddItemView: View {
     
     // MARK: - Private methods
     private func saveItem() {
-        // TODO: Add stuff here...
+        Task {
+            try await supaDooViewModel.createTodoItem(name: name)
+            try await supaDooViewModel.fetchTodoItems()
+        }
     }
 }
 

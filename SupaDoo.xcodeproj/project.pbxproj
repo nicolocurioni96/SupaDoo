@@ -155,9 +155,8 @@
 			children = (
 				A12A3B812B04331C009B9637 /* App */,
 				A12A3B892B04341C009B9637 /* Model */,
-				A12A3B822B043329009B9637 /* Views */,
-				A11D9B2F2B08113A004DF4D4 /* Operation (Add & Edit) */,
 				A12A3B832B04333E009B9637 /* ViewModels */,
+				A12A3B822B043329009B9637 /* Views */,
 				A12A3B862B0433B3009B9637 /* Shared */,
 				A12A3B5B2B042949009B9637 /* Assets.xcassets */,
 				A12A3B5D2B042949009B9637 /* Preview Content */,
@@ -205,6 +204,7 @@
 				A11D9B352B081B0E004DF4D4 /* Authentication */,
 				A11D9B2B2B080F11004DF4D4 /* Home */,
 				A11D9B2C2B080F19004DF4D4 /* Detail */,
+				A11D9B2F2B08113A004DF4D4 /* Operation (Add & Edit) */,
 			);
 			path = Views;
 			sourceTree = "<group>";

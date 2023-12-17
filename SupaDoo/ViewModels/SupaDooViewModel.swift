@@ -57,11 +57,28 @@ final class SupaDooViewModel: ObservableObject {
     
     // MARK: - Database
     func createTodoItem(name: String) async throws {
-        // TODO: Add stuff here...
+        let user = try await supabase.auth.session.user
+        let todoItem = Shoppings(createdAt: Date(), name: name, isComplete: false, userID: user.id)
+        
+        try await supabase
+            .database
+            .from(Table.shoppings)
+            .insert(values: todoItem)
+            .execute()
     }
     
     func fetchTodoItems() async throws {
-        // TODO: Add stuff here...
+        let shoppings: [Shoppings] = try await supabase
+            .database
+            .from(Table.shoppings)
+            .select()
+            .order(column: "created_at", ascending: false)
+            .execute()
+            .value
+        
+        DispatchQueue.main.async {
+            self.shoppings = shoppings
+        }
     }
     
     func update(_ shopping: Shoppings, with name: String) async {
