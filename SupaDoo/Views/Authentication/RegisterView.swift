@@ -10,7 +10,7 @@ import SwiftUI
 struct RegisterView: View {
     @Environment(\.dismiss) private var dismiss
     
-    @ObservedObject var supaDooViewModel = SupaDooViewModel()
+    @ObservedObject var supaDooViewModel: SupaDooViewModel
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -55,7 +55,7 @@ struct RegisterView: View {
                         Image(systemName: "lock")
                             .foregroundColor(.blue)
                         
-                        TextField("Password", text: $supaDooViewModel.password)
+                        SecureField("Password", text: $supaDooViewModel.password)
                             .autocapitalization(.none)
                     }
                     .padding()
@@ -71,6 +71,13 @@ struct RegisterView: View {
                 VStack {
                     Button {
                         // TODO: Add stuff here...
+                        Task {
+                            try await supaDooViewModel.signUp()
+                            
+                            withAnimation {
+                                dismiss()
+                            }
+                        }
                     } label: {
                         Text("Sign Up")
                             .font(.title2)
@@ -90,5 +97,5 @@ struct RegisterView: View {
 }
 
 #Preview {
-    RegisterView()
+    RegisterView(supaDooViewModel: .init())
 }

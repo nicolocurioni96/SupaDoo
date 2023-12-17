@@ -11,6 +11,8 @@ struct WelcomeView: View {
     @State private var loginSheet = false
     @State private var registerSheet = false
     
+    @ObservedObject var supaDooViewModel: SupaDooViewModel
+    
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
@@ -40,7 +42,7 @@ struct WelcomeView: View {
                 .foregroundColor(.white)
                 .clipShape(Rectangle())
                 .cornerRadius(10)
-                .sheet(isPresented: $loginSheet) { LoginView() }
+                .sheet(isPresented: $loginSheet) { LoginView(supaDooViewModel: supaDooViewModel) }
                 
                 Button {
                     registerSheet = true
@@ -59,13 +61,16 @@ struct WelcomeView: View {
                 .foregroundColor(Color.blue)
                 .clipShape(Rectangle())
                 .cornerRadius(10)
-                .sheet(isPresented: $registerSheet) { RegisterView() }
+                .sheet(isPresented: $registerSheet) { RegisterView(supaDooViewModel: supaDooViewModel) }
             }
             .padding(18)
+        }
+        .task {
+            await supaDooViewModel.isUserAuthenticated()
         }
     }
 }
 
 #Preview {
-    WelcomeView()
+    WelcomeView(supaDooViewModel: .init())
 }

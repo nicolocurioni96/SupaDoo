@@ -16,27 +16,43 @@ enum Table {
 final class SupaDooViewModel: ObservableObject {
     @Published var isAuthenticated = false
     @Published var shoppings = [Shoppings]()
-    @Published var showingAuthView = false
     @Published var email = ""
     @Published var password = ""
     
-    //let supabase = SupabaseClient(supabaseURL: Secrets.projectURL, supabaseKey: Secrets.apiKey)
+    let supabase = SupabaseClient(supabaseURL: Secrets.projectURL, supabaseKey: Secrets.apiKey)
     
     // MARK: - Authentication
     func signUp() async throws {
         // TODO: Add stuff here...
+        _ = try await supabase.auth.signUp(email: email, password: password)
+        
+        isAuthenticated = true
     }
     
     func signIn() async throws {
         // TODO: Add stuff here...
+        _ = try await supabase.auth.signIn(email: email, password: password)
+        
+        isAuthenticated = true
     }
     
     func isUserAuthenticated() async {
         // TODO: Add stuff here...
+        do {
+            _ = try await supabase.auth.session.user
+            isAuthenticated = true
+        } catch {
+            print("🔴 Error: \(error.localizedDescription)")
+            
+            isAuthenticated = false
+        }
     }
     
     func signOut() async throws {
         // TODO: Add stuff here...
+        try await supabase.auth.signOut()
+        
+        isAuthenticated = false
     }
     
     // MARK: - Database

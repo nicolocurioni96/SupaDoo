@@ -10,7 +10,7 @@ import SwiftUI
 struct HomeView: View {
     @State private var showAddNewItem = false
     
-    @StateObject var supaDooViewModel = SupaDooViewModel()
+    @ObservedObject var supaDooViewModel: SupaDooViewModel
     
     var body: some View {
         ZStack {
@@ -45,9 +45,12 @@ struct HomeView: View {
                 }
             }
         }
+        .task {
+            await supaDooViewModel.isUserAuthenticated()
+        }
     }
 }
 
 #Preview {
-    HomeView()
+    HomeView(supaDooViewModel: .init())
 }

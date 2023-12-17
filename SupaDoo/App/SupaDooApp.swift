@@ -14,9 +14,9 @@ struct SupaDooApp: App {
     var body: some Scene {
         WindowGroup {
             if supaDooViewModel.isAuthenticated {
-                HomeView()
+                HomeView(supaDooViewModel: supaDooViewModel)
             } else {
-                WelcomeView()
+                WelcomeView(supaDooViewModel: supaDooViewModel)
             }
         }
     }

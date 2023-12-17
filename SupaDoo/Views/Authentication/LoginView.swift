@@ -10,7 +10,7 @@ import SwiftUI
 struct LoginView: View {
     @Environment(\.dismiss) private var dismiss
     
-    @ObservedObject var supaDooViewModel = SupaDooViewModel()
+    @ObservedObject var supaDooViewModel: SupaDooViewModel
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -55,7 +55,7 @@ struct LoginView: View {
                         Image(systemName: "lock")
                             .foregroundColor(.blue)
                         
-                        TextField("Password", text: $supaDooViewModel.password)
+                        SecureField("Password", text: $supaDooViewModel.password)
                             .autocapitalization(.none)
                     }
                     .padding()
@@ -71,6 +71,13 @@ struct LoginView: View {
                 VStack {
                     Button {
                         // TODO: Add stuff here...
+                        Task {
+                            try await supaDooViewModel.signIn()
+                            
+                            withAnimation {
+                                dismiss()
+                            }
+                        }
                     } label: {
                         Text("Sign In")
                             .font(.title2)
@@ -90,5 +97,5 @@ struct LoginView: View {
 }
 
 #Preview {
-    LoginView()
+    LoginView(supaDooViewModel: .init())
 }
