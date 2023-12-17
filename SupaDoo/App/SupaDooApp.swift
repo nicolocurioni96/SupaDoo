@@ -15,6 +15,11 @@ struct SupaDooApp: App {
         WindowGroup {
             if supaDooViewModel.isAuthenticated {
                 HomeView(supaDooViewModel: supaDooViewModel)
+                    .onAppear {
+                        Task {
+                            try await supaDooViewModel.fetchTodoItems()
+                        }
+                    }
             } else {
                 WelcomeView(supaDooViewModel: supaDooViewModel)
             }
