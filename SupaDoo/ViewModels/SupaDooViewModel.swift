@@ -81,11 +81,7 @@ final class SupaDooViewModel: ObservableObject {
         }
     }
     
-    func update(_ shopping: Shoppings, with name: String) async {
-        // TODO: Add stuff here...
-    }
-    
-    func update(_ shopping: Shoppings, withStatus isCompleted: Bool) async {
+    func update(_ shopping: Shoppings, with name: String, withStatus isComplete: Bool) async {
         // TODO: Add stuff here...
     }
     
