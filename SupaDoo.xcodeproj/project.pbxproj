@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A11D9B2E2B080F2A004DF4D4 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11D9B2D2B080F2A004DF4D4 /* DetailView.swift */; };
-		A11D9B312B081152004DF4D4 /* AddItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11D9B302B081152004DF4D4 /* AddItemView.swift */; };
+		A11D9B312B081152004DF4D4 /* OperationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11D9B302B081152004DF4D4 /* OperationView.swift */; };
 		A11D9B342B0817E5004DF4D4 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11D9B332B0817E5004DF4D4 /* WelcomeView.swift */; };
 		A11D9B372B081B2E004DF4D4 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11D9B362B081B2E004DF4D4 /* RegisterView.swift */; };
 		A11D9B392B081B3C004DF4D4 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11D9B382B081B3C004DF4D4 /* LoginView.swift */; };
@@ -44,7 +44,7 @@
 
 /* Begin PBXFileReference section */
 		A11D9B2D2B080F2A004DF4D4 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
-		A11D9B302B081152004DF4D4 /* AddItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemView.swift; sourceTree = "<group>"; };
+		A11D9B302B081152004DF4D4 /* OperationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationView.swift; sourceTree = "<group>"; };
 		A11D9B332B0817E5004DF4D4 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		A11D9B362B081B2E004DF4D4 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		A11D9B382B081B3C004DF4D4 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -108,7 +108,7 @@
 		A11D9B2F2B08113A004DF4D4 /* Operation (Add & Edit) */ = {
 			isa = PBXGroup;
 			children = (
-				A11D9B302B081152004DF4D4 /* AddItemView.swift */,
+				A11D9B302B081152004DF4D4 /* OperationView.swift */,
 			);
 			path = "Operation (Add & Edit)";
 			sourceTree = "<group>";
@@ -372,7 +372,7 @@
 				A11D9B372B081B2E004DF4D4 /* RegisterView.swift in Sources */,
 				A12A3B5A2B042948009B9637 /* HomeView.swift in Sources */,
 				A11D9B2E2B080F2A004DF4D4 /* DetailView.swift in Sources */,
-				A11D9B312B081152004DF4D4 /* AddItemView.swift in Sources */,
+				A11D9B312B081152004DF4D4 /* OperationView.swift in Sources */,
 				A11D9B342B0817E5004DF4D4 /* WelcomeView.swift in Sources */,
 				A12A3B8B2B0434E4009B9637 /* Shoppings.swift in Sources */,
 				A12A3B882B0433E9009B9637 /* Secrets.swift in Sources */,

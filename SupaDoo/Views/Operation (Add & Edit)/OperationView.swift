@@ -1,5 +1,5 @@
 //
-//  AddItemView.swift
+//  OperationView.swift
 //  SupaDoo
 //
 //  Created by Nicolò Curioni on 17/11/23.
@@ -7,12 +7,14 @@
 
 import SwiftUI
 
-struct AddItemView: View {
+struct OperationView: View {
     @ObservedObject var supaDooViewModel: SupaDooViewModel
     @Environment(\.dismiss) private var dismiss
     
     @State private var name = ""
     @State private var isComplete = false
+    
+    let shoppingItem: Shoppings?
     
     var body: some View {
         NavigationStack {
@@ -35,7 +37,7 @@ struct AddItemView: View {
                 ToolbarItem(placement: .bottomBar) {
                     Button {
                         withAnimation {
-                            saveItem()
+                            operationItem()
                             dismiss()
                         }
                     } label: {
@@ -48,18 +50,34 @@ struct AddItemView: View {
                     .disabled(name.isEmpty)
                 }
             }
+            .onAppear {
+                if let shoppingItem {
+                    // Edit TODO item..
+                    name = shoppingItem.name
+                    isComplete = shoppingItem.isComplete
+                } else {
+                    // Add new TODO item..
+                }
+            }
         }
     }
     
     // MARK: - Private methods
-    private func saveItem() {
+    private func operationItem() {
         Task {
-            try await supaDooViewModel.createTodoItem(name: name)
-            try await supaDooViewModel.fetchTodoItems()
+            if let shoppingItem {
+                // Edit TODO item..
+                await supaDooViewModel.update(shoppingItem, with: name, withStatus: isComplete)
+                try await supaDooViewModel.fetchTodoItems()
+            } else {
+                // Add new TODO item..
+                try await supaDooViewModel.createTodoItem(name: name)
+                try await supaDooViewModel.fetchTodoItems()
+            }
         }
     }
 }
 
 #Preview {
-    AddItemView(supaDooViewModel: .init())
+    OperationView(supaDooViewModel: .init(), shoppingItem: nil)
 }

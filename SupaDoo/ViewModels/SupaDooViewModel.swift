@@ -82,7 +82,26 @@ final class SupaDooViewModel: ObservableObject {
     }
     
     func update(_ shopping: Shoppings, with name: String, withStatus isComplete: Bool) async {
-        // TODO: Add stuff here...
+        guard let id = shopping.id else {
+            print("🔴 Error: Can't update shopping item with id: \(String(describing: shopping.id))")
+            return
+        }
+        
+        var itemToUpdate = shopping
+        
+        itemToUpdate.name = name
+        itemToUpdate.isComplete = isComplete
+        
+        do {
+            try await supabase
+                .database
+                .from(Table.shoppings)
+                .update(values: itemToUpdate)
+                .eq(column: "id", value: id)
+                .execute()
+        } catch {
+            print("🔴 Error: \(error.localizedDescription)")
+        }
     }
     
     func deleteFeature(at id: Int) async throws {

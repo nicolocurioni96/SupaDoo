@@ -41,8 +41,13 @@ struct HomeView: View {
                             .foregroundStyle(Color.blue)
                     })
                     .sheet(isPresented: $showAddNewItem) {
-                        AddItemView(supaDooViewModel: supaDooViewModel)
+                        OperationView(supaDooViewModel: supaDooViewModel, shoppingItem: nil)
                     }
+                }
+            }
+            .onAppear {
+                Task {
+                    try await supaDooViewModel.fetchTodoItems()
                 }
             }
         }

@@ -12,6 +12,10 @@ struct DetailView: View {
     
     @Environment(\.dismiss) var dismiss
     
+    @StateObject var supaDooViewModel = SupaDooViewModel()
+    
+    @State private var editShoppingItem = false
+    
     var body: some View {
         ZStack {
             NavigationStack {
@@ -29,6 +33,21 @@ struct DetailView: View {
                     }
                 }
                 .navigationTitle(todoItem.name)
+                .toolbar {
+                    ToolbarItem(placement: .topBarTrailing) {
+                        Button(action: {
+                            editShoppingItem = true
+                        }, label: {
+                            Image(systemName: "pencil.circle.fill")
+                                .font(.title2)
+                                .fontWeight(.black)
+                                .foregroundStyle(Color.blue)
+                        })
+                        .sheet(isPresented: $editShoppingItem) {
+                            OperationView(supaDooViewModel: .init(), shoppingItem: todoItem)
+                        }
+                    }
+                }
             }
         }
     }
