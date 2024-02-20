@@ -24,6 +24,7 @@ struct HomeView: View {
                 }
             }
             .task {
+                try? await supaDooViewModel.fetchTodoItems()
                 await supaDooViewModel.isUserAuthenticated()
             }
             .navigationTitle("SupaDoo")
@@ -43,11 +44,6 @@ struct HomeView: View {
                     .sheet(isPresented: $showAddNewItem) {
                         OperationView(supaDooViewModel: supaDooViewModel, shoppingItem: nil)
                     }
-                }
-            }
-            .onAppear {
-                Task {
-                    try await supaDooViewModel.fetchTodoItems()
                 }
             }
         }
