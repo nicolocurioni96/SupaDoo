@@ -104,7 +104,14 @@ final class SupaDooViewModel: ObservableObject {
         }
     }
     
-    func deleteFeature(at id: Int) async throws {
-        // TODO: Add stuff here...
+    func deleteTodoItem(at id: Int) async throws {
+        try await supabase
+            .database
+            .from(Table.shoppings)
+            .delete()
+            .eq(column: "id", value: id)
+            .execute()
+        
+        try? await fetchTodoItems()
     }
 }

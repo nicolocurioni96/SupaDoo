@@ -9,6 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     @State private var showAddNewItem = false
+    @State private var showDeleteItemAlert = false
     
     @StateObject var supaDooViewModel = SupaDooViewModel()
     
@@ -20,6 +21,30 @@ struct HomeView: View {
                         DetailView(todoItem: todoItem)
                     } label: {
                         Text(todoItem.name)
+                    }
+                    .swipeActions {
+                        Button(role: .destructive) {
+                            showDeleteItemAlert.toggle()
+                        } label: {
+                            Label("Rimuovi", systemImage: "trash.fill")
+                        }
+                    }
+                    .alert("Sei sicuro di rimuovere questo elemento?", isPresented: $showDeleteItemAlert) {
+                        Button(role: .destructive) {
+                            Task {
+                                if let id = todoItem.id {
+                                    try await supaDooViewModel.deleteTodoItem(at: id)
+                                }
+                            }
+                        } label: {
+                            Text("Rimuovi")
+                        }
+                        
+                        Button(role: .cancel) {
+                            
+                        } label: {
+                            Text("Annulla")
+                        }
                     }
                 }
             }
